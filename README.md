@@ -33,3 +33,4 @@ You can apply patches to your ROM with an IPS patcher, such as Floating IPS or t
 
 ### Balance / Fix Patches
 - [Blue Soul Damage Scale Formula Improvement](https://www.mediafire.com/file/ugqpib4zbf1fihk/BlueSoulDmgImprovement-v1.ips/file) - Changes the blue soul damage formula so that weaker souls will scale better with INT. Stronger souls should remain similar.
+- [Soul Containers Don't Seek](https://www.mediafire.com/file/8sfn99vbxq2o55g/SoulContainersDontSeek.ips/file) - Changes Soul containers so that the souls they drop stand still rather than seeking towards Soma. This is useful for the randomizer so that souls that are 'flight locked' require you to be able to fly to actually obtain them.
