@@ -11,7 +11,7 @@ You can apply patches to your ROM with an IPS patcher, such as Floating IPS or t
 ### &#127873; 11/24/2023 
 - [Hungry Mode Patch v1](https://www.mediafire.com/file/zsbu3319rprap8c/AoS_HungryMode-v1.ips/file) - Drains 1 HP a second. Candles and destructibles have a ~1/8 chance to drop a Meat Strip.
 ### &#127873; 12/1/2023 
-- Not Released
+- [Classicvania Movement v1](https://www.mediafire.com/file/sxe9d31g9ywtk0b/AoS_Classicvania-Movement-v1.ips/file) - NES Style movement with no air control (except when using souls like Flying Armor and Giant Bat). You can change directions with double jump or Hippogryph, and when you walk off ledges, you'll drop straight down. Backdash jumping and divekick bounce speed is reduced.
 ### &#127873; 12/8/2023 
 - Not Released
 ### &#127873; 12/15/2023 
@@ -26,6 +26,7 @@ You can apply patches to your ROM with an IPS patcher, such as Floating IPS or t
 - [Alucard Backdash v1](https://www.mediafire.com/file/2t1m1ygfxr02j7y/AlucardBackdash-v1.ips/file)  - Chain backdashes together, and you can always cancel attacks with backdash.
 - [LCancel v1](https://www.mediafire.com/file/fh8u7dt52hjfu9k/LCancel-v1.ips/file) - Pressing your ability button (default: L) will cancel any attack or red soul use, even in midair or while crouched.
 - [Hungry Mode Patch v1](https://www.mediafire.com/file/zsbu3319rprap8c/AoS_HungryMode-v1.ips/file) - Drains 1 HP a second. Candles and destructibles have a ~1/8 chance to drop a Meat Strip.
+- [Classicvania Movement v1](https://www.mediafire.com/file/sxe9d31g9ywtk0b/AoS_Classicvania-Movement-v1.ips/file) - NES Style movement with no air control (except when using souls like Flying Armor and Giant Bat). You can change directions with double jump or Hippogryph, and when you walk off ledges, you'll drop straight down. Backdash jumping and divekick bounce speed is reduced.
 - HyperMode patches (Currently not compatible with other gameplay patches) - These make all enemies update faster, affecting movement and attack speeds.
     - [Hyper Mode v0.4 (137%)](https://www.mediafire.com/file/bkogvits2r41s1k/HyperMode_v0_4.ips/file) - 137% enemy speed, 125% Bosses
     - [Hyper Mode v0.3 (150%)](https://www.mediafire.com/file/cs95gt6su3slz5k/HyperMode_v0_3-150.ips/file) - 150% enemy/boss speed
