@@ -15,7 +15,7 @@ You can apply patches to your ROM with an IPS patcher, such as Floating IPS or t
 ### &#127873; 12/8/2023 
 - [Panic Mode v1.1](https://www.mediafire.com/file/xhia09hrv0oqmi5/AoS_PanicMode-v1-1.ips/file) - Panic mode! The lower your HP, the faster you move.
 ### &#127873; 12/15/2023 
-- Not Released
+- [Hazard Mode v1](https://www.mediafire.com/file/vcat9c9bmhtdylj/AoS_HazardMode-v1.ips/file) - All candles, flames, and destructibles are replaced with damaging skulls that move in a small rectangular path.
 ### &#127873; 12/22/2023 
 - Not Released
 
@@ -28,6 +28,7 @@ You can apply patches to your ROM with an IPS patcher, such as Floating IPS or t
 - [Hungry Mode Patch v1](https://www.mediafire.com/file/zsbu3319rprap8c/AoS_HungryMode-v1.ips/file) - Drains 1 HP a second. Candles and destructibles have a ~1/8 chance to drop a Meat Strip.
 - [Classicvania Movement v1](https://www.mediafire.com/file/sxe9d31g9ywtk0b/AoS_Classicvania-Movement-v1.ips/file) - NES Style movement with no air control (except when using souls like Flying Armor and Giant Bat). You can change directions with double jump or Hippogryph, and when you walk off ledges, you'll drop straight down. Backdash jumping and divekick bounce speed is reduced.
 - [Panic Mode v1.1](https://www.mediafire.com/file/xhia09hrv0oqmi5/AoS_PanicMode-v1-1.ips/file) - Panic mode! The lower your HP, the faster you move.
+- [Hazard Mode v1](https://www.mediafire.com/file/vcat9c9bmhtdylj/AoS_HazardMode-v1.ips/file) - All candles, flames, and destructibles are replaced with damaging skulls that move in a small rectangular path.
 - HyperMode patches (Currently not compatible with other gameplay patches) - These make all enemies update faster, affecting movement and attack speeds.
     - [Hyper Mode v0.4 (137%)](https://www.mediafire.com/file/bkogvits2r41s1k/HyperMode_v0_4.ips/file) - 137% enemy speed, 125% Bosses
     - [Hyper Mode v0.3 (150%)](https://www.mediafire.com/file/cs95gt6su3slz5k/HyperMode_v0_3-150.ips/file) - 150% enemy/boss speed
