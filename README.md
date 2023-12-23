@@ -17,9 +17,9 @@ You can apply patches to your ROM with an IPS patcher, such as Floating IPS or t
 ### &#127873; 12/15/2023 
 - [Hazard Mode v1](https://www.mediafire.com/file/vcat9c9bmhtdylj/AoS_HazardMode-v1.ips/file) - All candles, flames, and destructibles are replaced with damaging skulls that move in a small rectangular path.
 ### &#127873; 12/22/2023 
-- [Attack Shuffle mode v1](https://www.mediafire.com/file/jyk5fvsm2jhw79c/AoS_AttackShuffleMode-v1.ips/file) - Weapon and Red soul are randomized after every time your XP changes (e.g. Killing enemies and bosses except for Graham and Julius). You are forced to use the weapon and red soul combo until your next kill.
+- [Attack Shuffle mode v1](https://www.mediafire.com/file/jyk5fvsm2jhw79c/AoS_AttackShuffleMode-v1.ips/file) - Weapon and Red soul are randomized after every time your XP changes (e.g. Killing enemies and bosses except for Graham and Julius). You are forced to use the weapon and red soul combo until your next XP Change. Red souls only cost 5 MP.
 - [Holiday Pickups v1](https://www.mediafire.com/file/x8qo0o165tr8ue3/AoS_HolidayPickups-v1.ips/file) - All equipment pickups in rooms show present graphics (their original graphics are shown in the menu). Soul canisters are replaced by Xmas trees.
-- [Holiday HUD v1](https://www.mediafire.com/file/e93w6427eew7a0c/AoS_HolidayHUD-v1.ips/file) - Changes the HUD with lights for the HP and MP bars, and a Snowman.
+- [Holiday HUD v1.1](https://www.mediafire.com/file/xk6q3sqi5i39ngb/AoS_HolidayHUD-v1-1.ips/file) - Changes the HUD with lights for the HP and MP bars, and a Snowman.
 
 ![Holiday HUD](/screenshots/HolidayHUDPickups.PNG "Holiday HUD")
 
@@ -33,7 +33,7 @@ You can apply patches to your ROM with an IPS patcher, such as Floating IPS or t
 - [Classicvania Movement v1](https://www.mediafire.com/file/sxe9d31g9ywtk0b/AoS_Classicvania-Movement-v1.ips/file) - NES Style movement with no air control (except when using souls like Flying Armor and Giant Bat). You can change directions with double jump or Hippogryph, and when you walk off ledges, you'll drop straight down. Backdash jumping and divekick bounce speed is reduced.
 - [Panic Mode v1.1](https://www.mediafire.com/file/xhia09hrv0oqmi5/AoS_PanicMode-v1-1.ips/file) - Panic mode! The lower your HP, the faster you move.
 - [Hazard Mode v1](https://www.mediafire.com/file/vcat9c9bmhtdylj/AoS_HazardMode-v1.ips/file) - All candles, flames, and destructibles are replaced with damaging skulls that move in a small rectangular path.
-- [Attack Shuffle mode v1](https://www.mediafire.com/file/jyk5fvsm2jhw79c/AoS_AttackShuffleMode-v1.ips/file) - Weapon and Red soul are randomized after every time your XP changes (e.g. Killing enemies and bosses except for Graham and Julius). You are forced to use the weapon and red soul combo until your next kill.
+- [Attack Shuffle mode v1](https://www.mediafire.com/file/jyk5fvsm2jhw79c/AoS_AttackShuffleMode-v1.ips/file) - Weapon and Red soul are randomized after every time your XP changes (e.g. Killing enemies and bosses except for Graham and Julius). You are forced to use the weapon and red soul combo until your next XP Change. Red souls only cost 5 MP.
 - HyperMode patches (Currently not compatible with other gameplay patches) - These make all enemies update faster, affecting movement and attack speeds.
     - [Hyper Mode v0.4 (137%)](https://www.mediafire.com/file/bkogvits2r41s1k/HyperMode_v0_4.ips/file) - 137% enemy speed, 125% Bosses
     - [Hyper Mode v0.3 (150%)](https://www.mediafire.com/file/cs95gt6su3slz5k/HyperMode_v0_3-150.ips/file) - 150% enemy/boss speed
@@ -43,4 +43,4 @@ You can apply patches to your ROM with an IPS patcher, such as Floating IPS or t
 - [Blue Soul Damage Scale Formula Improvement](https://www.mediafire.com/file/ugqpib4zbf1fihk/BlueSoulDmgImprovement-v1.ips/file) - Changes the blue soul damage formula so that weaker souls will scale better with INT. Stronger souls should remain similar.
 - [Soul Containers Don't Seek](https://www.mediafire.com/file/8sfn99vbxq2o55g/SoulContainersDontSeek.ips/file) - Changes Soul containers so that the souls they drop stand still rather than seeking towards Soma. This is useful for the randomizer so that souls that are 'flight locked' require you to be able to fly to actually obtain them.
 - [Holiday Pickups v1](https://www.mediafire.com/file/x8qo0o165tr8ue3/AoS_HolidayPickups-v1.ips/file) - All equipment pickups in rooms show present graphics (their original graphics are shown in the menus). Soul canisters are replaced by Xmas trees.
-- [Holiday HUD v1](https://www.mediafire.com/file/e93w6427eew7a0c/AoS_HolidayHUD-v1.ips/file) - Changes the HUD with lights for the HP and MP bars, and a Snowman.
+- [Holiday HUD v1.1](https://www.mediafire.com/file/xk6q3sqi5i39ngb/AoS_HolidayHUD-v1-1.ips/file) - Changes the HUD with lights for the HP and MP bars, and a Snowman.
