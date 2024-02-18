@@ -5,30 +5,29 @@
 .include "aos_r_xan_hook_update.asm"
 .open "ftc/rom.gba", 08000000h
 
-.ifndef GameTime
-  .definelabel GameTime, 0x20000AC
-	.definelabel PlayerButtons, 0x2000014
-	.definelabel PlayerButtonsJustPressed, PlayerButtons+2		; two bytes
-	.definelabel PlayerButtonConfigAttack, 0x02013398		; two bytes
-	.definelabel PlayerButtonConfigJump, 0x201339A			; two bytes
-	.definelabel PlayerButtonConfigAbility, 0x0201339C	; two bytes
-	.definelabel PlayerButtonConfigGuardian, 0x0201339E ; two bytes
-  .definelabel PlayerMaxHP, 0x0201327E		; 2 bytes	
-	.definelabel PlayerHP, 0x201327a				; 2 bytes
-	.definelabel PlayerMP, 0x0201327C				; 2 bytes
-  .definelabel PlayerXP, 0x0201328C				; 4 bytes
-	.definelabel PlayerMaxMP, 0x02013280		; 2 bytes
-  .definelabel PlayerPassiveEffects, 0x02013260				; player passive effect flags
-  .definelabel PlayerWeapon, 0x02013268		; 1 byte index
-	.definelabel PlayerRedSoul, 0x02013269	; 1 byte index. current equipped red soul
-  .definelabel CurrentWeaponEntity, 0x201311c     ; pointer to current active weapon entity
-  .definelabel RedSoulEntityCount, 0x020131be     ; number of active red soul entities
+.definelabel GameTime, 0x20000AC
+.definelabel PlayerButtons, 0x2000014
+.definelabel PlayerButtonsJustPressed, PlayerButtons+2		; two bytes
+.definelabel PlayerButtonConfigAttack, 0x02013398		; two bytes
+.definelabel PlayerButtonConfigJump, 0x201339A			; two bytes
+.definelabel PlayerButtonConfigAbility, 0x0201339C	; two bytes
+.definelabel PlayerButtonConfigGuardian, 0x0201339E ; two bytes
+.definelabel PlayerMaxHP, 0x0201327E		; 2 bytes
+.definelabel PlayerHP, 0x201327a				; 2 bytes
+.definelabel PlayerMP, 0x0201327C				; 2 bytes
+.definelabel PlayerXP, 0x0201328C				; 4 bytes
+.definelabel PlayerMaxMP, 0x02013280		; 2 bytes
+.definelabel PlayerPassiveEffects, 0x02013260				; player passive effect flags
+.definelabel PlayerWeapon, 0x02013268		; 1 byte index
+.definelabel PlayerRedSoul, 0x02013269	; 1 byte index. current equipped red soul
+.definelabel CurrentYellowSoulEntity, 0x02013164	; Contains pointer to eyllow soul entity
+.definelabel CurrentWeaponEntity, 0x201311c     ; pointer to current active weapon entity
+.definelabel RedSoulEntityCount, 0x020131be     ; number of active red soul entities
 
-	.definelabel JuliusMode, 0x2013266	; 0 for Soma, 1 for Julius Mode.
-	.definelabel PlayerEntity, 0x20004E4
+.definelabel JuliusMode, 0x2013266	; 0 for Soma, 1 for Julius Mode.
+.definelabel PlayerEntity, 0x20004E4
 
-  .definelabel ChaosMPCost, 5
-.endif
+.definelabel ChaosMPCost, 5
 
 ; XanHook Update 6
 .definelabel HookIndex, 6
@@ -105,8 +104,6 @@
   add r0, 1                       ; Add 1 to get value from 1 to 0x37
   strb r0, [r5, Offset_Current_RedSoul]   ; Save to keep player with this soul equipped
 
-
-
   @@save_xp:
   ; save current XP as previous
   str r6, [r5, Offset_Prev_PlayerXP]
@@ -140,28 +137,39 @@
   strh r4, [r5, Offset_Prev_PlayerMP]
 
   ; keep Player with specific weapon / soul equipped until it swaps
-  ; Wait until current weapon / souls are no longer active
+  ; Wait until current weapon is no longer active
   ldr r0, =CurrentWeaponEntity
   ldr r0, [r0]
   cmp r0, 0
   bne @@skip_save_weapon
   ldrb r0, [r5, Offset_Current_Weapon]
   ldr r4, =PlayerWeapon
+  ldrb r1, [r4]                   ; load current weapon to see if it has changed
+  cmp r0, r1
+  beq @@skip_save_weapon
   strb r0, [r4]                   ; store new weapon
+  ; Update Player Stats (from switching weapons).
+  ; Note: This will over-write Yellow soul stat (which occur earlier during this frame)
+  ldr r1, =0x0804ad9c | 1       ; UpdatePlayerStats function
+  bl call_func_in_r1
+  ; re-run code for yellow soul , if it exists
+  ldr r1, =CurrentYellowSoulEntity
+  ldr r0, [r1]      ; load pointer to yellow soul entity
+  cmp r0, 0
+  beq @@skip_save_weapon
+  ldr r1, [r0]      ; load code pointer on yellow soul entity
+  cmp r1, 0
+  beq @@skip_save_weapon
+  bl call_func_in_r1
   @@skip_save_weapon:
 
-  ldr r0, =RedSoulEntityCount
-  ldrb r0, [r0]
-  cmp r0, 0
-  bne @@skip_save_soul
+  ; always keep soul
+  ; (doesn't matter if it changes while previous red soul entities are active,
+  ; Can't be used until previous soul entities are gone)
   ldrb r0, [r5, Offset_Current_RedSoul]
   ldr r4, =PlayerRedSoul
   strb r0, [r4]                   ; store new soul
-  @@skip_save_soul:
-  ; Update Player Stats (from switching weapons)
-  ldr r1, =0x0804ad9c | 1
-  bl call_func_in_r1
-  
+
   pop {r1}
   mov lr, r1
   pop {r0-r6}

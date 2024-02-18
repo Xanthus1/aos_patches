@@ -9,25 +9,23 @@
 ; Combo / Interrupt weapon and red soul attacks into themselves
 ; Jump cancels all attacks.
 
-.ifndef GameTime
-  .definelabel GameTime, 0x20000AC
-	.definelabel PlayerButtons, 0x2000014
-	.definelabel PlayerButtonsJustPressed, PlayerButtons+2		; two bytes
-	.definelabel PlayerButtonConfigAttack, 0x02013398		; two bytes
-	.definelabel PlayerButtonConfigJump, 0x201339A			; two bytes
-	.definelabel PlayerButtonConfigAbility, 0x0201339C	; two bytes
-	.definelabel PlayerButtonConfigGuardian, 0x0201339E ; two bytes
-  .definelabel PlayerMaxHP, 0x0201327E		; 2 bytes	
-	.definelabel PlayerHP, 0x201327a				; 2 bytes
-	.definelabel PlayerMP, 0x0201327C				; 2 bytes
-	.definelabel PlayerMaxMP, 0x02013280		; 2 bytes
-  .definelabel PlayerPassiveEffects, 0x02013260				; player passive effect flags
-  .definelabel FuncUseSoul, 0x8019478 | 1					; Uses soul ability
-	.definelabel FuncUseWeapon, 0x080197b4 | 1			; Use weapon
+.definelabel GameTime, 0x20000AC
+.definelabel PlayerButtons, 0x2000014
+.definelabel PlayerButtonsJustPressed, PlayerButtons+2		; two bytes
+.definelabel PlayerButtonConfigAttack, 0x02013398		; two bytes
+.definelabel PlayerButtonConfigJump, 0x201339A			; two bytes
+.definelabel PlayerButtonConfigAbility, 0x0201339C	; two bytes
+.definelabel PlayerButtonConfigGuardian, 0x0201339E ; two bytes
+.definelabel PlayerMaxHP, 0x0201327E		; 2 bytes
+.definelabel PlayerHP, 0x201327a				; 2 bytes
+.definelabel PlayerMP, 0x0201327C				; 2 bytes
+.definelabel PlayerMaxMP, 0x02013280		; 2 bytes
+.definelabel PlayerPassiveEffects, 0x02013260				; player passive effect flags
+.definelabel FuncUseSoul, 0x8019478 | 1					; Uses soul ability
+.definelabel FuncUseWeapon, 0x080197b4 | 1			; Use weapon
 
-	.definelabel JuliusMode, 0x2013266	; 0 for Soma, 1 for Julius Mode.
-	.definelabel PlayerEntity, 0x20004E4
-.endif
+.definelabel JuliusMode, 0x2013266	; 0 for Soma, 1 for Julius Mode.
+.definelabel PlayerEntity, 0x20004E4
 
 ; XanHook Update 3
 .definelabel HookIndex, 3
