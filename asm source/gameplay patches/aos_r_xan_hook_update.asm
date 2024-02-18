@@ -19,7 +19,7 @@
 ; 1. 0x0 - No Air Control / Classicvania Movement Mode
 ; 2. 0x4 - Hypermode
 ; 3. 0x8 - Turbo Attack Mode ( L Cancel patch )
-; 4. 0xC - TBD
+; 4. 0xC - Hyper mode
 ; 5. 0x10 - Panic Mode
 ; 6. 0x14 - Attack Shuffle Mode
 ; 7. 0x18 - TBD
