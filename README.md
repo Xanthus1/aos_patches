@@ -17,7 +17,7 @@ You can apply patches to your ROM with an IPS patcher, such as Floating IPS or t
 ### &#127873; 12/15/2023 
 - [Hazard Mode v1](https://www.mediafire.com/file/vcat9c9bmhtdylj/AoS_HazardMode-v1.ips/file) - All candles, flames, and destructibles are replaced with damaging skulls that move in a small rectangular path.
 ### &#127873; 12/22/2023 
-- [Attack Shuffle mode v1](https://www.mediafire.com/file/jyk5fvsm2jhw79c/AoS_AttackShuffleMode-v1.ips/file) - Weapon and Red soul are randomized after every time your XP changes (e.g. Killing enemies and bosses except for Graham and Julius). You are forced to use the weapon and red soul combo until your next XP Change. Red souls only cost 5 MP.
+- [Attack Shuffle mode v1.1](https://www.mediafire.com/file/vdjyoyq23my0el7/AoS_AttackShuffleMode-v1_1.ips/file) - Weapon and Red soul are randomized after every time your XP changes (e.g. Killing enemies and bosses except for Graham and Julius). You are forced to use the weapon and red soul combo until your next XP Change. Red souls only cost 5 MP.  (fixed Yellow soul bug with v1.1)
 - [Holiday Pickups v1](https://www.mediafire.com/file/x8qo0o165tr8ue3/AoS_HolidayPickups-v1.ips/file) - All equipment pickups in rooms show present graphics (their original graphics are shown in the menu). Soul canisters are replaced by Xmas trees.
 - [Holiday HUD v1.1](https://www.mediafire.com/file/xk6q3sqi5i39ngb/AoS_HolidayHUD-v1-1.ips/file) - Changes the HUD with lights for the HP and MP bars, and a Snowman.
 
@@ -33,7 +33,7 @@ You can apply patches to your ROM with an IPS patcher, such as Floating IPS or t
 - [Classicvania Movement v1](https://www.mediafire.com/file/sxe9d31g9ywtk0b/AoS_Classicvania-Movement-v1.ips/file) - NES Style movement with no air control (except when using souls like Flying Armor and Giant Bat). You can change directions with double jump or Hippogryph, and when you walk off ledges, you'll drop straight down. Backdash jumping and divekick bounce speed is reduced.
 - [Panic Mode v1.1](https://www.mediafire.com/file/xhia09hrv0oqmi5/AoS_PanicMode-v1-1.ips/file) - Panic mode! The lower your HP, the faster you move.
 - [Hazard Mode v1](https://www.mediafire.com/file/vcat9c9bmhtdylj/AoS_HazardMode-v1.ips/file) - All candles, flames, and destructibles are replaced with damaging skulls that move in a small rectangular path.
-- [Attack Shuffle mode v1](https://www.mediafire.com/file/jyk5fvsm2jhw79c/AoS_AttackShuffleMode-v1.ips/file) - Weapon and Red soul are randomized after every time your XP changes (e.g. Killing enemies and bosses except for Graham and Julius). You are forced to use the weapon and red soul combo until your next XP Change. Red souls only cost 5 MP.
+- [Attack Shuffle mode v1.1](https://www.mediafire.com/file/vdjyoyq23my0el7/AoS_AttackShuffleMode-v1_1.ips/file) - Weapon and Red soul are randomized after every time your XP changes (e.g. Killing enemies and bosses except for Graham and Julius). You are forced to use the weapon and red soul combo until your next XP Change. Red souls only cost 5 MP.  (fixed Yellow soul bug with v1.1)
 - HyperMode patches (Currently not compatible with other gameplay patches) - These make all enemies update faster, affecting movement and attack speeds.
     - [Hyper Mode v0.4 (137%)](https://www.mediafire.com/file/bkogvits2r41s1k/HyperMode_v0_4.ips/file) - 137% enemy speed, 125% Bosses
     - [Hyper Mode v0.3 (150%)](https://www.mediafire.com/file/cs95gt6su3slz5k/HyperMode_v0_3-150.ips/file) - 150% enemy/boss speed
