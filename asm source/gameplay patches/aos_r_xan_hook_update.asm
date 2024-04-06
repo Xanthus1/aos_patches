@@ -22,7 +22,7 @@
 ; 4. 0xC - Hyper mode
 ; 5. 0x10 - Panic Mode
 ; 6. 0x14 - Attack Shuffle Mode
-; 7. 0x18 - TBD
+; 7. 0x18 - Slippery
 ; 8. 0x1C - Hungry Mode
 ; 9. 0x20 - Free
 ; 10. 0x24 - Free

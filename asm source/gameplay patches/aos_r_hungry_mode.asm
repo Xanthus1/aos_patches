@@ -30,8 +30,9 @@
   mov r0, 0
   ldrsh r2, [r4, r0]
 
-  cmp r0, 0
-  bgt @@return
+  ; don't trigger if player is already dead
+  cmp r2, 0
+  ble @@return
 
   ldr r0, =GameTime
   ldr r0, [r0]
@@ -40,7 +41,25 @@
   cmp r1, 0
   bne @@return
 
-  sub r2, 1
+  ; subtract hp based on current HP, maxes out after 400 hp.
+  mov r1, 1 ; default of 1
+  mov r3, 100
+  cmp r2, r3
+  ble @@skip_min_2
+  mov r1, 2     ; 101-200 HP, take 2 dmg
+  @@skip_min_2:
+  add r3, 100
+  cmp r2, r3
+  ble @@skip_min_3
+  mov r1, 3     ; 201-300 HP, take 3 dmg
+  @@skip_min_3:
+  add r3, 100
+  cmp r2, r3
+  ble @@skip_min_4
+  mov r1, 4     ; 301-400 HP, take 4 dmg
+  @@skip_min_4:
+
+  sub r2, r1
   cmp r2, 0
   bgt @@skip_death
   ; Set player damaged flag so death will trigger
@@ -65,7 +84,7 @@
   ; Use a middle byte of the RNG seed, the lowest byte doesn't seem to be
   ; as randomly disbtributed due to how it's generated (though it might've just been chance)
   ldrb r0, [r0, 0x2]
-  cmp r0, 0xE0          ; if byte is >= 0xE0  (~1/8 chance)
+  cmp r0, 0xF0          ; if byte is >= 0xF0  (~1/16 chance)
   blt 0x08045fe6
   mov r6, 3         ; Change Drop Consumable Item ID to 3
   mov r5, 2         ; Change Drop type to Consumable Item type

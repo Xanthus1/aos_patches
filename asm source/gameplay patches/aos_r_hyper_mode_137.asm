@@ -16,7 +16,7 @@
   .area 0x200
   func_update_hyper_enemies:
     ; v1.0 - All enemies, bosses, and hazards at 137%.
-    ; TODO: optimize Great Armors? Fixes for Merman / Zombies / medusa heads overspawning?
+    ; TODO: optimize Great Armors?
     .definelabel QuetzUpdateFunction, 0x08077CBD
     .definelabel QuetzTailUpdateFunction, 0x8078319
     .definelabel ManEaterTentrilsUpdateFunction, 0x080ba37c | 1
