@@ -15,7 +15,7 @@ for Reprise.
 ### Gameplay Patches
 - [Alucard Backdash v1](https://www.mediafire.com/file/2t1m1ygfxr02j7y/AlucardBackdash-v1.ips/file)  - Chain backdashes together, and you can always cancel attacks with backdash.
 - [LCancel v1](https://www.mediafire.com/file/fh8u7dt52hjfu9k/LCancel-v1.ips/file) - Pressing your ability button (default: L) will cancel any attack or red soul use, even in midair or while crouched.
-- [Hungry Mode Patch v1](https://www.mediafire.com/file/zsbu3319rprap8c/AoS_HungryMode-v1.ips/file) - Drains 1 HP a second. Candles and destructibles have a ~1/8 chance to drop a Meat Strip.
+- [Hungry Mode Patch v1.1](https://www.mediafire.com/file/hhytkt4blvvqn37/AoS_Hungrymode_v1-1.ips/file) - Drains between 1 and 4 hp a second (depending on your current HP). Candles and destructibles have a ~1/16 chance to drop a Meat Strip.  v1.1 decreased Meat strip chance and made hp drain proportional.
 - [Classicvania Movement v1](https://www.mediafire.com/file/sxe9d31g9ywtk0b/AoS_Classicvania-Movement-v1.ips/file) - NES Style movement with no air control (except when using souls like Flying Armor and Giant Bat). You can change directions with double jump or Hippogryph, and when you walk off ledges, you'll drop almost straight down.
 - [Panic Mode v1.1](https://www.mediafire.com/file/xhia09hrv0oqmi5/AoS_PanicMode-v1-1.ips/file) - Panic mode! The lower your HP, the faster you move.
 - [Hazard Mode v1](https://www.mediafire.com/file/vcat9c9bmhtdylj/AoS_HazardMode-v1.ips/file) - All candles, flames, and destructibles are replaced with damaging skulls that move in a small rectangular path.
