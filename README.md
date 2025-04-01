@@ -27,6 +27,7 @@ for Reprise.
     - [Hyper Mode v1.0 (150%)](https://www.mediafire.com/file/04ubhg71qmvrbe9/AoS_Hypermode_150-v1.ips/file) - 150% enemy/boss speed
     - [Hyper Mode v1.0 (175%)](https://www.mediafire.com/file/k1hosnq3dxa5g49/AoS_Hypermode_175-v1.ips/file) - 175% enemy/boss speed
     - [Hyper Mode v1.0 (200%)](https://www.mediafire.com/file/3ji0rvzp66ibk4g/AoS_Hypermode_200-v1.ips/file) - 200% enemy/boss speed
+- [Fairy Mode Beta2](https://www.mediafire.com/file/3zuln6p99d5t2mg/aos-vanilla-+fairy+beta2.ips/file) - Weapons and Enemies will names different than how they appear, and the names represent what stats they'll have. For weapons, their graphics/icons represent how they will swing. If you pick up a weapon that looks like a hammer, but it says Claimh, then it will be a hammer with Claimh's stats. For enemies, wherever bats would spawn, an enemy with the stats of a bat, but move/attacks like lubicant will spawn. I'll work on a tool to allow this to be re-randomized.
 
 ### Balance / Fixes / Other Patches
 - [Blue Soul Damage Scale Formula Improvement](https://www.mediafire.com/file/ugqpib4zbf1fihk/BlueSoulDmgImprovement-v1.ips/file) - Changes the blue soul damage formula so that weaker souls will scale better with INT. Stronger souls should remain similar.
