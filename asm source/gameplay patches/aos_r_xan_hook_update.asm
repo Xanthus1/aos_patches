@@ -13,7 +13,9 @@
 ; This patch should be included for any update hook patch
 ; This will excecute any function pointers located in XanUpdateHooksList.
 ; XanUpdateHooksList + 0x0 through 0x20 are reserved for Xanthus Mode patches
-; 0x20-0x30 Are currently free
+; 0x28-0x2C Are currently free
+
+; Important: Any Hook shouldn't overwrite r4-r6
 
 ; HookIndex. Function offset - Function name
 ; 1. 0x0 - No Air Control / Classicvania Movement Mode
@@ -21,11 +23,11 @@
 ; 3. 0x8 - Turbo Attack Mode ( L Cancel patch )
 ; 4. 0xC - Hyper mode
 ; 5. 0x10 - Panic Mode
-; 6. 0x14 - Attack Shuffle Mode
-; 7. 0x18 - Slippery
+; 6. 0x14 - Attack Shuffle Mode / Weapon Shuffle Mode
+; 7. 0x18 - Slippery Mode / Extra Slippery Mode
 ; 8. 0x1C - Hungry Mode
-; 9. 0x20 - Free
-; 10. 0x24 - Free
+; 9. 0x20 - Bouncy Mode
+; 10. 0x24 - Windy Mode
 ; 11. 0x28 - Free
 ; 12. 0x2C - Free
 
@@ -37,33 +39,33 @@
 .org 0x87D0000
   .area 0x40
   
-  push {r0-r2}
+  push {r4-r6}
   push {lr}
   
-  ldr r1, =0x0804306D   ; hp display update
-  bl call_func_in_r1
+  ldr r4, =0x0804306D   ; hp display update
+  bl call_func_in_r4
 
-  ldr r0, =XanUpdateHooksList
-  mov r1, 0
+  ldr r4, =XanUpdateHooksList
+  mov r5, 0
   @@loop_update_hooks:
-    cmp r1, 0x30
+    cmp r5, 0x30
     beq @@end_update_hooks
 
-    ldr r2, [r0, r1]
-    cmp r2, 0
+    ldr r6, [r4, r5]
+    cmp r6, 0
     beq @@next_update_hook
 
-    bl call_func_in_r2
+    bl call_func_in_r6
 
     @@next_update_hook:
-    add r1, 4
+    add r5, 4
     b @@loop_update_hooks
   
   @@end_update_hooks:
 
-  pop {r0}
-  mov lr, r0
-  pop {r0-r2}
+  pop {r4}
+  mov lr, r4
+  pop {r4-r6}
   bx lr
   .pool
 
@@ -72,6 +74,15 @@
   
   call_func_in_r2:
     bx r2
+
+  call_func_in_r3:
+    bx r3
+
+  call_func_in_r4:
+    bx r4
+
+  call_func_in_r6:
+    bx r6
 
   .endarea
 
