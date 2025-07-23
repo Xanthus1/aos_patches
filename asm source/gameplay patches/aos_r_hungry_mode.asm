@@ -9,6 +9,7 @@
 .definelabel GameTime, 0x20000AC ; GameTime address
 .definelabel PlayerHP, 0x201327a				; 2 bytes (signed?)
 .definelabel PlayerInputLocked, 0x200001B						; has (0x3 or 0x4 or 0x8)? set if inputs are locked (cutscenes, walking through bossdoor, etc.)
+.definelabel PlayerLevel, 0x2013279   ; 1 byte
 
 ; XanHook Update 8
 .definelabel HookIndex, 8
@@ -41,23 +42,17 @@
   cmp r1, 0
   bne @@return
 
-  ; subtract hp based on current HP, maxes out after 400 hp.
-  mov r1, 1 ; default of 1
-  mov r3, 100
-  cmp r2, r3
-  ble @@skip_min_2
-  mov r1, 2     ; 101-200 HP, take 2 dmg
+  ; subtract hp based on current Level.
+  ; <10 : 1 hp
+  ; 10+ : 2 hp
+  mov r1, 1 ; default of 1 damage
+
+  ldr r0, =PlayerLevel
+  ldrb r0, [r0]
+  cmp r0, 10
+  blt @@skip_min_2
+  mov r1, 2     ; take 2 damage
   @@skip_min_2:
-  add r3, 100
-  cmp r2, r3
-  ble @@skip_min_3
-  mov r1, 3     ; 201-300 HP, take 3 dmg
-  @@skip_min_3:
-  add r3, 100
-  cmp r2, r3
-  ble @@skip_min_4
-  mov r1, 4     ; 301-400 HP, take 4 dmg
-  @@skip_min_4:
 
   sub r2, r1
   cmp r2, 0
@@ -84,7 +79,7 @@
   ; Use a middle byte of the RNG seed, the lowest byte doesn't seem to be
   ; as randomly disbtributed due to how it's generated (though it might've just been chance)
   ldrb r0, [r0, 0x2]
-  cmp r0, 0xF0          ; if byte is >= 0xF0  (~1/16 chance)
+  cmp r0, 0xE8          ; if byte is >= 0xE8  (~1/12 chance)
   blt 0x08045fe6
   mov r6, 3         ; Change Drop Consumable Item ID to 3
   mov r5, 2         ; Change Drop type to Consumable Item type

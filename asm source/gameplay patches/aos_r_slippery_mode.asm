@@ -36,7 +36,7 @@
 
       ; store data here
       ldr r0, =0x203E000+(HookIndex-1)*0x10
-      .definelabel Offset_Initialized, 0x0      ; 1 byte
+      .definelabel Offset_Initialized, 0x0      ; 1 byte (not needed)
       .definelabel Offset_Prev_Player_Jumpstate, 0x1      ; 1byte
       .definelabel Offset_Prev_Speed, 0x4   ; 4 bytes
 
@@ -45,17 +45,24 @@
       ; store previous player speed to [0x30]
 
       ldr r4, =PlayerEntity
-      ; initialization (required due to screen transitions stopping player)
-      ldrb r1, [r0, Offset_Initialized]
-      cmp r1, 0
-      bne @@skip_init
-      mov r1, 1
-      strb r1, [r0, Offset_Initialized]
-      ; save initial player speed
-      ldr r3, [r4, 0x48]
-      str r3, [r0, Offset_Prev_Speed]
-      @@skip_init:
 
+      ; Don't apply during cutscenes or door transitions
+      ; if these aren't equal, player input is locked. Can't directly check PlayerInputLocked because it's reset by the time this code runs.
+      ldr r1, =0x2000014    ; playerInput
+      ldr r2, [r1]
+      ldr r1, =0x200001C    ; AppliedPlayerInput
+      ldr r3, [r1]
+      cmp r2, r3
+      beq @@continue_slippery
+      ; save 0 as speed / jumpstate
+      mov r3, 0
+      str r3, [r0, Offset_Prev_Speed]          ; save previous x speed
+
+      mov r2, 0
+      strb r2, [r0, Offset_Prev_Player_Jumpstate]         ; save previous jumpstate
+      b @@return
+
+      @@continue_slippery:
       ldrb r2, [r4, 0x10]
       mov r3, 0xF
       and r2, r3                  ; r2 is 0 if player is on ground
@@ -123,6 +130,7 @@
 
       strb r2, [r0, Offset_Prev_Player_Jumpstate]         ; save previous jumpstate
 
+      @@return:
       pop {r1-r6}
       bx lr
       .pool
