@@ -28,7 +28,7 @@
 ; 8. 0x1C - Hungry Mode
 ; 9. 0x20 - Bouncy Mode
 ; 10. 0x24 - Windy Mode
-; 11. 0x28 - Free
+; 11. 0x28 - Low Gravity / High Gravity
 ; 12. 0x2C - Free
 
 .org 0x08043104
