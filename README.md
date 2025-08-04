@@ -10,6 +10,12 @@ for Reprise.
 - Discord: https://discord.gg/PytA9rr6nz
 - Direct patch download (zipped with readme): https://www.mediafire.com/file/zidr6w06ypy69sx/AoS_Reprise_v1_0.zip/file
 
+# MetaShop
+
+MetaShop (Online patching tool for many patches, can be used for rando races): https://metashop-rompatcher.xanthusapps.com/
+
+Note: Some metashop patches/code haven't been yet added to this repo yet, but will soon.
+
 # Full Patch List:
 
 ### Gameplay Patches
@@ -34,3 +40,4 @@ for Reprise.
 - [Soul Containers Don't Seek](https://www.mediafire.com/file/8sfn99vbxq2o55g/SoulContainersDontSeek.ips/file) - Changes Soul containers so that the souls they drop stand still rather than seeking towards Soma. This is useful for the randomizer so that souls that are 'flight locked' require you to be able to fly to actually obtain them.
 - [Holiday Pickups v1](https://www.mediafire.com/file/x8qo0o165tr8ue3/AoS_HolidayPickups-v1.ips/file) - All equipment pickups in rooms show present graphics (their original graphics are shown in the menus). Soul canisters are replaced by Xmas trees.
 - [Holiday HUD v1.1](https://www.mediafire.com/file/xk6q3sqi5i39ngb/AoS_HolidayHUD-v1-1.ips/file) - Changes the HUD with lights for the HP and MP bars, and a Snowman.
+
