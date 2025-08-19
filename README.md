@@ -4,16 +4,17 @@ These patches will expand or alter various aspects of Castlevania Aria of Sorrow
 Some were initially created as part of a 2023 patch release to help test new features
 for Reprise.
 
-## Reprise:
+## Links/Other projects
+### Reprise:
 
 - RHDN Hack page: https://www.romhacking.net/hacks/8425/
 - Discord: https://discord.gg/PytA9rr6nz
 - Direct patch download (zipped with readme): https://www.mediafire.com/file/zidr6w06ypy69sx/AoS_Reprise_v1_0.zip/file
 
-## Metashop
-Online patcher website that can be used for races- contains most of the patches on this page, as
-well as some that I couldn't imagine anybody wanting to use.
-https://metashop-rompatcher.xanthusapps.com/
+### Metashop
+Online patcher website that can be used for races- contains most of the patches on this page, as well as some that I couldn't imagine anybody wanting to use. Also contains a weapon shuffling utility
+to randomize weapons
+- https://metashop-rompatcher.xanthusapps.com/
 
 # Full Patch List:
 
