@@ -1,0 +1,165 @@
+; Note: These are just the addresses I documented for Reprise
+; for code that utilizes these RAM / ROM locations and functions.
+
+
+; Vanilla Aria addresses
+	.definelabel CurrentRNG, 0x2000008	; current RNG Seed
+	.definelabel CurrentRoom, 0x2000088 ; current room address
+	.definelabel SystemTime, 0x2000000
+	.definelabel GameTime, 0x20000AC ; GameTime address
+	.definelabel CameraXPixels, 0x0200A09A	; top-left of camera
+	.definelabel CameraYPixels, 0x0200A09E	; top-left of camera
+	.definelabel CurrentSaveIndex, 0x2000428
+	.definelabel BossFlags, 0x200037E		; 2 bytes, defeated boss flags
+	.definelabel CurrentMusic, 0x2000090 ; current music
+	.definelabel PlayerInputLocked, 0x200001B						; has (0x3 or 0x4 or 0x8)? set if inputs are locked (cutscenes, walking through bossdoor, teleporting, etc.)
+	.definelabel PlayerButtons, 0x2000014
+		.definelabel ButtonLeft, 0x20
+		.definelabel ButtonRight, 0x10
+	.definelabel PlayerButtonsJustPressed, PlayerButtons+2		; two bytes  0x2000016
+	.definelabel PlayerButtonsJustPressed2, PlayerButtons+4		; two bytes  0x2000018.  Repeats
+	.definelabel PlayerButtonsActivePressed, 0x200001C	; two bytes  0x200001C, Buttons that are 'active' and process during update (not during cutscenes, etc.)
+	.definelabel PlayerButtonsActiveJustPressed, 0x200001E	; two bytes  0x200001C, just pressed Buttons that are 'active' and process during update (not during cutscenes, etc.)
+	.definelabel PlayerButtonConfigAttack, 0x02013398		; two bytes
+	.definelabel PlayerButtonConfigJump, 0x201339A			; two bytes
+	.definelabel PlayerButtonConfigAbility, 0x0201339C	; two bytes
+	.definelabel PlayerButtonConfigGuardian, 0x0201339E ; two bytes
+
+	.definelabel PlayerPickupFlags, 2000360h	; 2000360h-2000373 are pickup bit flags.
+
+	.definelabel GameMode, 0x020000A1	; low nibble is 0 for Julius (Is this correct?)
+	.definelabel JuliusMode, 0x2013266	; 0 for Soma, 1 for Julius Mode.
+	.definelabel PlayerEntity, 0x20004E4
+	.definelabel PlayerStateFlags, 0x20004e4+0x10		; Player state flags
+		; first byte:
+			; 0x02 - Single jump
+			; 0x04 - double jump (0x06)
+			; 0x08 - set after dive kicking off of something
+			; 0x10 - hippogryph
+			; 0x20 - Attack (slide as well)
+			; 0x40 - Midair Attack?  0x60 is midair attack
+			; 0x80 - damaged
+		; second byte:
+			; 0x01 - red soul
+			; 0x02 - panther?
+			; 0x04 - crouched
+			; 0x10 - after player started falling, even if you double jump after
+			; 0x20 - on right stairs
+			; 0x40 - on left stairs
+		; third byte:
+			; 0x01 - heavy landing
+			; 0x04 - colliding with wall
+			; 0x10 - on ground
+		; fourth byte:
+			; 0x01 - Underwater (including partially when at the top)
+			; 0x08 - on ground
+			; 0x10 - backdashing
+			; 0x20 - hit ceiling
+		; 0x20004e4+0x14
+			; fist byte used for Coyote Jump timer (jumping after walking off ledge)
+	.definelabel PlayerInvulnerabilityTimer, 0x2000502 ; player invulnerable timer  [player entity, 0x1E] 1 byte
+	.definelabel PlayerFlashingTimer, 0x2000518	 ; 1 byte
+
+	.definelabel PlayerX, 0x2000526		; 2 bytes, player X position (in pixels)
+	.definelabel PlayerY, 0x200052A		; 2 bytes, player Y position (in pixels)
+	.definelabel PlayerXSpeed, 0x2000526+6		; 4 bytes in subpixels
+	.definelabel PlayerYSpeed, 0x200052A+6 		; 4 bytes, player y speed in subpixels
+	.definelabel CamX, 0x0200A09A		; 2 bytes, Cam X position (in pixels)
+	.definelabel CamY, 0x0200A09E		; 2 bytes, Cam Y position (in pixels)
+	.definelabel CurrentRoomXY, 0x0200008C
+	.definelabel PlayerMaxHP, 0x0201327E		; 2 bytes
+	.definelabel PlayerHP, 0x201327a				; 2 bytes
+	.definelabel PlayerMP, 0x0201327C				; 2 bytes
+	.definelabel PlayerMaxMP, 0x02013280		; 2 bytes
+	.definelabel PlayerXP, 0x0201328C				; 4 bytes
+	.definelabel PlayerWeapon, 0x02013268		; 1 byte index
+	.definelabel PlayerRedSoul, 0x02013269	; 1 byte index. current equipped red soul
+	.definelabel PlayerBlueSoul, 0x0201326A	; 1 byte index.
+	.definelabel PlayerYellowSoul, 0x0201326B     ; Current equipped yellow soul. 1 byte.
+	.definelabel PlayerActiveAbilitySouls, 0x02013396		; 1 byte, bitfield of active ability souls
+	.definelabel PlayerOwnedWeapons, 0x020132B4					; starting address for player owned weapons
+	.definelabel PlayerOwnedArmors, 0x020132EF					; starting address for player owned armors
+	.definelabel PlayerOwnedAccessories, 0x02013308			; starting address for player owned accessories
+	.definelabel PlayerOwnedRedSouls, 0x0201331C				; starting address for player owned red souls
+	.definelabel PlayerOwnedBlueSouls, 0x02013354				; starting address for player owned blue souls
+	.definelabel PlayerOwnedYellowSouls, 0x0201336E				; starting address for player owned yellow souls
+	.definelabel PlayerOwnedAbilitySouls, 0x02013392
+	.definelabel RedSoulEntityCount, 0x020131be     ; number of active red soul entities
+	.definelabel PlayerPassiveEffects, 0x02013260				; player passive effect flags
+	.definelabel PlayerArmor, 0x0201326C     ; Current equipped armor. 1 byte.
+	.definelabel PlayerAccessory, 0x0201326D     ; Current equipped accessory. 1 byte.
+	.definelabel PlayerATK, 0x020131EE		; player Attack (calculated), 2 bytes
+	.definelabel PlayerINT, 0x020131F6		; Player INT (calculated), 2 bytes
+	.definelabel PlayerGold, 0x02013290		; 4 bytes
+	.definelabel CurrentShopIndex, 0x02000430		; Current Hammer shop list to use
+	.definelabel CurrentRedSoulEntityList, 0x02013124	; contains pointers to red soul entities
+	.definelabel CurrentBlueSoulEntityList, 0x2013144	; contains pointers to blue soul entities
+	.definelabel CurrentYellowSoulEntity, 0x02013164	; Contains pointer to eyllow soul entity
+	.definelabel CurrentGuardianSoulDmgMultiplier, 0x020131c2 ; two bytes, contains damage multiplier for current blue / guardian soul
+	.definelabel CurrentGuardianSoulEffect, 0x020131c4		; two bytes, contains bitflag of current blue / guardian soul effect
+	.definelabel PlayerVisibleEntity, 0x02013168		; Where enemies look for player. This is set to 20004E4, the player entity, or to killer doll entity, or 0 for Nemesis.
+	.definelabel LastHitXCoord, 0x020131d8					; used where player was hit last. Used for KB direction?
+	.definelabel PlayerPoisonTimer, 0x02013272			; 2 bytes
+	.definelabel PlayerCursedTimer, 0x02013274			; 2 bytes
+	.definelabel PlayerStoneTimer, 0x02013276			; 2 bytes
+	.definelabel EffectSlash,               0b1
+	.definelabel EffectFire,                0b10
+	.definelabel EffectWater,               0b100
+	.definelabel EffectThunder,             0b1000
+	.definelabel EffectDark,                0b10000
+	.definelabel EffectHoly,                0b100000
+	.definelabel EffectPoison,              0b1000000
+	.definelabel EffectCurse,               0b10000000
+	.definelabel EffectStone,               0b100000000
+	.definelabel EffectFinalStrike,         0b1000000000
+	.definelabel EffectPierce,              0b10000000000
+	.definelabel EffectKillerMantle,        0b100000000000
+	.definelabel EffectHalfDamage,          0b1000000000000
+	.definelabel EffectNoInterruptOnLand,   0b10000000000000
+	.definelabel EffectBackstab,            0b100000000000000
+	.definelabel EffectUnknown16,           0b1000000000000000
+
+
+	.definelabel FuncDeleteEntity, 0x08000e14 | 1		; deletes entity in r0
+	.definelabel FuncUseSoul, 0x8019478 | 1					; Uses soul ability
+	.definelabel FuncUseWeapon, 0x080197b4 | 1			; Use weapon
+	.definelabel FuncGroundEntity, 0x806af98 | 1
+
+	.definelabel EntityListStart, 0x20012D0							; First entity slot
+	.definelabel EntityParticleListStart, 0x2002A88 		; First Particle Entity Slot
+
+	.definelabel CheckWallCollisionAtPoint, 0x8001d94 ; CheckWallCollisionAtPoint. r0 is absolute position of x, r1 absolution position of y.
+		; result r0 is 0 if no collision, although r0 is sometimes 0xFFF0 in doorway?
+	.definelabel GetCollisionData, 0x08001fe8	; GetCollisionData. r0- entity, r1-x offset, r2, y-offset. return values in r0 below
+		.definelabel COLLISION_NO, 0x0
+		.definelabel COLLISION_SOLID, 0x3
+		.definelabel COLLISION_DROPTHROUGH, 0x1
+
+	.definelabel FuncGetNumOwnedSoul, 0x080326b8 | 1	; returns number of souls owned. r0 should be subtype-5 . r1 should be id-1.
+	.definelabel FuncSpawnItem, 0x08044054 | 1 	; Spawn item. r0 is X pixels, r1 is Y pixels, r2 is SubType, r3 is VarB, [sp, 0x0] is always 1 on LoadingRoomEntity. idk what it's for.
+	.definelabel FuncSpawnSoulContainer, 0x8044980 | 1  ; Spawn Soul Container. r0 ix X, r1 is Y, r2 is (Subtype-5), r3 is (Pickup Flag - 1). Returns entity in r0
+	.definelabel FuncClearBGFade, 0x803d270 | 1 ; Clear BG Fade. No params
+	.definelabel FuncClearFGFade, 0x0803ced4 | 1 ; Clear FG Fade. No params
+	.definelabel FuncBackgroundPaletteFade, 0x0803d18c | 1	; Fades background palette to color based on params.
+	.definelabel FuncForegroundPaletteFade, 0x0803cdf0 | 1	; Fades background palette to color based on params.
+		; r0 - param 1 R?
+		; r1 - param 2 G
+		; r2 - param 2 B?
+		; r3 - param 4 - Starting intensity, up to 0x10000
+		; [sp, 0x0] param 5 - Ending intensity, up to 0x10000
+		; [sp, 0x4] param 6 - speed of change, higher is slower
+	.definelabel FuncPlaySound, 0x080d7910 | 1	; Plays sound, r0 is ID of sound
+	.definelabel EquipInitialItems, 0x804b26c ; r1 is item type (2 is weapon, 1 is armor, 0 is acc)
+		.definelabel EQUIP_WEAPON_TYPE, 0
+		.definelabel EQUIP_ARMOR_TYPE, 1
+		.definelabel EQUIP_ACCESSORY_TYPE, 2
+	.definelabel FuncHealPlayer, 08021fech
+
+; Advanced collection
+	; 0x8700000 - 0x87000E0  : used for some functions / hooks with Advanced collection player
+		; for the beastiary/popups
+
+; FuseCV Rando locations
+	.definelabel FuseCVRandoShopHooks, 0x8700000
+		; for Reprise, I moved these to 0x8700100, due to advanced collection conflict
+	.definelabel FuseCVRandoEnemyNames, 0x8704000
