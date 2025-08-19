@@ -15,7 +15,7 @@
 ; XanUpdateHooksList + 0x0 through 0x20 are reserved for Xanthus Mode patches
 ; 0x28-0x2C Are currently free
 
-; Important: Any Hook shouldn't overwrite r4-r6
+; Important: Any Hook shouldn't overwrite registers r4-r6
 
 ; HookIndex. Function offset - Function name
 ; 1. 0x0 - No Air Control / Classicvania Movement Mode

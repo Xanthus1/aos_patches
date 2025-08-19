@@ -46,6 +46,12 @@
 
       ldr r4, =PlayerEntity
 
+      ; ignore while using rush soul
+      ldrh r2, [r4, 10]           ; load player state and substate
+      ldr r3, =0x0309             ; player state is 9, substate is 0x3 if rush soul is active
+      cmp r2, r3
+      beq @@return
+
       ; Don't apply during cutscenes or door transitions
       ; if these aren't equal, player input is locked. Can't directly check PlayerInputLocked because it's reset by the time this code runs.
       ldr r1, =0x2000014    ; playerInput
