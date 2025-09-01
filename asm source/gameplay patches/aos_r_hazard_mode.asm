@@ -4,7 +4,7 @@
 
 .open "ftc/rom.gba", 08000000h
 
-.definelabel XanOtherFunctionCode, 0x87D2000 ; Other random functions (candle hazards, etc)
+.definelabel XanOtherFunctionCode, 0x87D2000 ; Other MISC functions (candle hazards, etc)
 .definelabel CamX, 0x0200A09A		; 2 bytes, Cam X position (in pixels)
 .definelabel CamY, 0x0200A09E		; 2 bytes, Cam Y position (in pixels)
 

@@ -42,6 +42,7 @@ to randomize weapons
 - [High Knockback](https://www.mediafire.com/file/j08h5s3h0550vvc/HighKnockback.ips/file) - All attacks on Player have high knockback
 
 ### Balance / Fixes / Other Patches
+- [Skula Undine Ability Souls and Single Jump Swimming with Skula](https://www.mediafire.com/file/g7vjdvvmoia9x1s/SkulaUndineAbilitySouls_SingleJumpSkula.ips/file) - Changes Undine and Skula to Ability Souls, and allows jumping underwater without Malphas with Skula. If the Yellow containers containing Skula or Undine spawn, they are replaced with the new Grey containers.
 - [Blue Soul Damage Scale Formula Improvement](https://www.mediafire.com/file/ugqpib4zbf1fihk/BlueSoulDmgImprovement-v1.ips/file) - Changes the blue soul damage formula so that weaker souls will scale better with INT. Stronger souls should remain similar.
 - [Soul Containers Don't Seek](https://www.mediafire.com/file/8sfn99vbxq2o55g/SoulContainersDontSeek.ips/file) - Changes Soul containers so that the souls they drop stand still rather than seeking towards Soma. This is useful for the randomizer so that souls that are 'flight locked' require you to be able to fly to actually obtain them.
 - [LCK Plus Better Drop Rates](https://www.mediafire.com/file/d40ycj608hdvt2c/LCKpatchPlusBetterDropRate.ips/file) - LCK Fix patch (from DevAnj, https://www.romhacking.net/hacks/5645/), along with increased drop rate formula.

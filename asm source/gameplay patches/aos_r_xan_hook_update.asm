@@ -4,22 +4,24 @@
 
 .open "ftc/rom.gba", 08000000h
 
-.definelabel XanUpdateHooksList, 0x87D0040  ; Start of update hooks list. Current Length of 0x30 (12 entries)
-.definelabel XanUpdateFunctionCode, 0x87D0100 ; function code exists at this location + 0x200*(HookIndex-1)
-.definelabel XanOtherFunctionCode, 0x87D2000 ; Other random functions (candle hazards, etc)
-  ; Other random function 0 - Destructible to Hazard function
+.definelabel base_update_hook, 0x87D0000
+
+.definelabel XanUpdateHooksList, base_update_hook+0x40  ; Start of update hooks list. Current Length of 0x30 (12 entries)
+.definelabel XanUpdateFunctionCode, base_update_hook+0x100 ; function code exists at this location + 0x200*(HookIndex-1)
+  ; with 12 entries, code will only go to 0x87D16FF
+.definelabel XanOtherFunctionCode, 0x87D2000 ; Other MISC functions needed for Update hooks (candle hazards, etc)
+  ; Other MISC function 0 - Destructible to Hazard function
 
 ; Xan Hook - Update
 ; This patch should be included for any update hook patch
 ; This will excecute any function pointers located in XanUpdateHooksList.
 ; XanUpdateHooksList + 0x0 through 0x20 are reserved for Xanthus Mode patches
-; 0x28-0x2C Are currently free
-
 ; Important: Any Hook shouldn't overwrite registers r4-r6
+; This utilizes the HP Display update function as a hook
 
 ; HookIndex. Function offset - Function name
 ; 1. 0x0 - No Air Control / Classicvania Movement Mode
-; 2. 0x4 - Hypermode
+; 2. 0x4 - (Reprise Mode / Reprise Rebalance?)
 ; 3. 0x8 - Turbo Attack Mode ( L Cancel patch )
 ; 4. 0xC - Hyper mode
 ; 5. 0x10 - Panic Mode
@@ -29,7 +31,7 @@
 ; 9. 0x20 - Bouncy Mode
 ; 10. 0x24 - Windy Mode
 ; 11. 0x28 - Low Gravity / High Gravity
-; 12. 0x2C - Free
+; 12. 0x2C - FREE
 
 .org 0x08043104
   ; pointer to HP display update function
