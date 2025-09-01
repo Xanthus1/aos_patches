@@ -153,25 +153,37 @@
   @AbilityDescription1:
   .ascii 0x1, 0x0, "Backdash by pressing ",BUTTON_L,".", NEWLINE, 0xA  // {BUTTON L}
   @AbilityDescription2:
+  .ascii 0x1, 0x0, "Slide by pressing ", BUTTON_DOWN, " + ", BUTTON_A,". ", NEWLINE, 0xA
+  /* Reprise Description
   .ascii 0x1, 0x0, "Slide by pressing ", BUTTON_DOWN, " + ", BUTTON_A,". ", NEWLINE, \
     "~Faster and shorter.", NEWLINE, 0xA
+  */
   @AbilityDescription3:
   .ascii 0x1, 0x0, "Jump again in mid-jump.", NEWLINE, 0xA
   @AbilityDescription4:
+    .ascii 0x1, 0x0, "Kick during any jump by pressing ", NEWLINE, \
+    BUTTON_DOWN, " + ", BUTTON_A, ".", NEWLINE, 0xA
+  /* Reprise Description
   .ascii 0x1, 0x0, "Kick during any jump by pressing ", NEWLINE, \
     BUTTON_DOWN, " + ", BUTTON_A, ". Can bounce on candles.", NEWLINE, 0xA
+  */
   @AbilityDescription5:
   .ascii 0x1, 0x0, "Perform a high jump by pressing", NEWLINE, \
     BUTTON_L, " in mid-jump.", NEWLINE, 0xA
   @AbilityDescription6:
+  .ascii 0x1, 0x0, "Recognize places in which time", NEWLINE, \
+    "has been stopped.", NEWLINE, 0xA
+  /* Reprise Description
   .ascii 0x1, 0x0, "Resist time magic. ~Crouch+", BUTTON_L, NEWLINE, \
     "quickswitch last equipment/souls", NEWLINE, 0xA
+  */
   @AbilityDescription7:
   .ascii 0x1, 0x0, "Walk on water surfaces.", NEWLINE, 0xA
   @AbilityDescription8:
   .ascii 0x1, 0x0, "Allows you to walk while", NEWLINE, \
     "underwater.", NEWLINE, 0xA
 
+  .align
   func_double_jump_with_skula:
     push {lr}
     ; r0 - which ability soul to check
