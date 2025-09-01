@@ -6,7 +6,10 @@ for Reprise.
 
 ## Links/Other projects
 ### Reprise:
-
+A roguelike mod for Aria of Sorrow with a procedurally generated castle
+along with custom rooms, extensive new features, effects and rebalancing!
+Explore randomized areas, clear rooms, and then fight the boss
+to advance the game. Experiment with new equipment and soul abilities!
 - RHDN Hack page: https://www.romhacking.net/hacks/8425/
 - Discord: https://discord.gg/PytA9rr6nz
 - Direct patch download (zipped with readme): https://www.mediafire.com/file/zidr6w06ypy69sx/AoS_Reprise_v1_0.zip/file
@@ -15,6 +18,10 @@ for Reprise.
 Online patcher website that can be used for races- contains most of the patches on this page, as well as some that I couldn't imagine anybody wanting to use. Also contains a weapon shuffling utility
 to randomize weapons
 - https://metashop-rompatcher.xanthusapps.com/
+
+### Aria LUA
+This script for Bizhawk adds some additional settings and modes for Aria of Sorrow to introduce some new novel gameplay elements. I created this as the backbone for an eventual Twitch integration I'm working on, but you can play ATM only using this script.
+- https://github.com/Xanthus1/aria-lua
 
 # Full Patch List:
 
