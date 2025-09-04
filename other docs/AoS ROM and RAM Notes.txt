@@ -155,11 +155,48 @@
 		.definelabel EQUIP_ACCESSORY_TYPE, 2
 	.definelabel FuncHealPlayer, 08021fech
 
+
+; Vanilla Aria
+	; 0x8000000 - 0x8651164 - Used data
+		; 0x810194C - 0x81075C0 - French Text
+		; 0x81075C0 - 0x8116608 - German Text
+
 ; Advanced collection
 	; 0x8700000 - 0x87000E0  : used for some functions / hooks with Advanced collection player
 		; for the beastiary/popups
 
-; FuseCV Rando locations
+; FuseCV Rando locations - https://aosrando.surge.sh/
 	.definelabel FuseCVRandoShopHooks, 0x8700000
 		; for Reprise, I moved these to 0x8700100, due to advanced collection conflict
 	.definelabel FuseCVRandoEnemyNames, 0x8704000
+
+; CopperSoulQOL by dacoyaqi - https://coppersoulqol.surge.sh/
+	; 0x87AC000 - 0x87AD76F  - Shanoa Metadata (frame recoveries, etc)
+		; 087ac0b6 - Used for frame recovery information 
+
+	; 0x8113DF0 - Some German text is overwritten and re-used.
+
+	; 0x850788C - the text pointer for start/copy/delete data screen is stored here
+		; it's changed when Copper Soul patches are applied
+
+
+; Reprise locations
+	; 0x08651170 to 0x086556B0 - Room Data for Reprise v1.0
+
+	; 0x87e0000 - 0x87eFFFF  : All of Reprise code
+	; 0x87F0000 - ?? Might be used for some stuff (rooms / doors?). Double check
+	; 0x850788C - the text pointer for start/copy/delete data screen is stored here
+		; Reprise needs this set to 80f848c (in v1.0). Required so Reprise info remains after CopperSoul patch
+
+	; Reprise Text
+		; Replaces French Text ID's 0x410-0x41F for Ability soul name / descriptions
+		; Location in ROM starts at 0x80FABD8
+
+; XanHooks  / Custom functions
+	; 0x87D0000 - 0x87D16FF - Update hook functions / modes
+		; 12 entries currently possible, only goes to 0x87D16FF atm.
+	; TBD below:
+	; 0x87D1700 - 0x87D1FFF -
+	; 0x87D2000 - 0x87D2FFF - Other MISC functions
+	; 0x87D3000 - 0x87D37FF -
+	; 0x87D3800 - 0x87D3FFF -
